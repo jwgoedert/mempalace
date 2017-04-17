@@ -1,10 +1,11 @@
 const express = require('express');
-const path = require('path');
+// const path = require('path');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 
-const port = 3000; // change to be .env ready
+const port = process.env.PORT || 3000; // change to be .env ready
 
-const index = require('./routes/index');
+// const index = require('./routes/index');
 
 const app = express();
 
