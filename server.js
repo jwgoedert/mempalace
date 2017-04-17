@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use('/', index);
-app.get('/', (req, res) => res.send('hello world'));
+app.get('/', (req, res) => res.send('hello world!'));
 app.listen(port, (err) => {
   err ? console.log(err) : console.log(`serving starting at port ${port}.`);
 });
