@@ -1,21 +1,14 @@
-const express = require('express');
-// const path = require('path');
 require('dotenv').config();
+const express = require('express');
 const bodyParser = require('body-parser');
 
-const port = process.env.PORT || 3000; // change to be .env ready
-
-// const index = require('./routes/index');
-
+const port = process.env.PORT || 3000;
 const app = express();
-
-// app.use(express.static(path.join(__dirname, 'client')));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// app.use('/', index);
-app.get('/', (req, res) => res.send('hello world!'));
-app.listen(port, (err) => {
-  err ? console.log(err) : console.log(`serving starting at port ${port}.`);
+console.log("PORT", port);
+console.log("INSIDE SERVER");
+app.get('/', (req, res) => {
+  res.send('hello my planet, here I come!');
 });
+
+app.listen(port, (err) => err ? console.log(err) : console.log(`listening on ${port}.`));
+console.log("FINISHED SERVER");
