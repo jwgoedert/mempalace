@@ -19,8 +19,8 @@ MongoClient.connect(dbUrl, (err, database) => {
 });
 
 
-// app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
-app.get('/', (req, res) => res.send('Hello World'));
+app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
+// app.get('/', (req, res) => res.send('Hello World'));
 
 // POST HANDLING
 // app.post('/poa', (req, res) => {
