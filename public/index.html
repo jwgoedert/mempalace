@@ -1,23 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="memoryPal">
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">-->
-<title>Memory Palace </title>
+  <!--<meta charset="UTF-8">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="newstyle.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+  <script src="scripts.js"></script>
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">-->
+  <title>Memory Palace </title>
 
 
 </head>
-<body>
+
+<body ng-controller="mainController">
+  <ul>
+      <li><a id="home" href="http://localhost:3000/">Home</a></li>
+      <li><a id="deckCreator" href="http://localhost:3000/#/deckCreator">Deck Creator</a></li>
+      <li><a id="deck" href="http://localhost:3000/#/decks">Decks</a></li>
+      <li><a id="practice" href="http://localhost:3000/#/practice">Practice</a></li>
+</ul>
+<div id="main">{{message}}</div>
+<div ng-view>{{message}}</div>
+
   -PERSON-OBJECT-ACTION-
-<form action="/poa" method="POST">
-  <input type="text" placeholder="person" name="person">
-  <input type="text" placeholder="action" name="action">
-  a/an
-  <input type="text" placeholder="object" name="object">
-  <button type="submit">-SUBMIT-</button>
-</form>
+
+  <form action="/poa" method="POST">
+    <input type="text" placeholder="person" name="person">
+    <input type="text" placeholder="action" name="action"> a/an
+    <input type="text" placeholder="object" name="object">
+    <button type="submit">-SUBMIT-</button>
+  </form>
+
 </body>
 
 </html>
