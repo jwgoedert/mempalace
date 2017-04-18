@@ -23,10 +23,10 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 // app.get('/', (req, res) => res.send('Hello World'));
 
 // POST HANDLING
-// app.post('/poa', (req, res) => {
-//   db.collection('poa').save(req.body, (err, result) =>
-//     err ? console.log(err) : res.redirect('/'));
-// });
+app.post('/poa', (req, res) => {
+  db.collection('poa').save(req.body, (err, result) =>
+    err ? console.log(err) : res.redirect('/'));
+});
 
 // GET HANDLINGf
 // app.get('/', (req, res) => {
