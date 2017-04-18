@@ -19,7 +19,16 @@ MongoClient.connect(dbUrl, (err, database) => {
 });
 
 
-app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
+app.get('/', (req, res) => {
+  let cursor = db.collection('poa').find().toArray(function (err, results) {
+    if (err) {
+      console.log('not working because of:', err);
+    } else {
+      console.log(results);
+      res.sendFile(__dirname + '/public/index.html');
+    }
+  });
+});
 // app.get('/', (req, res) => res.send('Hello World'));
 
 // POST HANDLING
