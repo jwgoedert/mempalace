@@ -36,13 +36,4 @@ app.post('/poa', (req, res) => {
   db.collection('poa').save(req.body, (err, result) =>
     err ? console.log(err) : res.redirect('/'));
 });
-
-// GET HANDLINGf
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname + '/public/index.html');
-//   let cursor = db.collection('poa').find().toArray(function (err, results) {
-//     console.log(results);
-//   });
-// });
-
 console.log('FINISHED SERVER');
