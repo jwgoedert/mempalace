@@ -9,9 +9,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
-});
+app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 
 app.post('/poa', (req, res) => {
   console.log('QUOTES GOT HIT', req.body);
