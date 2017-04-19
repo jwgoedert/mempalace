@@ -24,7 +24,6 @@ app.set('view engine', 'ejs');
 MongoClient.connect(dbUrl, (err, database) => {
   if (err) return console.log(err);
   db = database;
-  console.log({{message}});
   app.listen(port, () => console.log(`listening on ${port}.`));
 });
 
@@ -39,7 +38,22 @@ app.get('/', (req, res) => {
     }
   });
 });
-// app.get('/', (req, res) => res.send('Hello World'));
+
+app.get('/deckCreator', (req, res) => {
+  let cursor = db.collection('poa').find().toArray(function (err, results) {
+    if (err) {
+      console.log('not working because of:', err);
+    } else {
+      console.log(results);
+      res.send(results);
+    }
+  });
+});
+
+app.get('/deckCreator', (req, res) => {
+  console.log('Hello World');
+  res.send('worked! is this really working?');
+});
 
 // POST HANDLING
 app.post('/poa', (req, res) => {

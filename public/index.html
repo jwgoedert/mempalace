@@ -11,31 +11,35 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
   <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>-->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
-  <script src="scripts.js"></script>
+
+  <script src="app/deckCreator/deckCreator.js"></script>
+  <script src="app/services/services.js"></script>
+  <script src="app/app.js"></script>
+ 
   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">-->
   <title>Memory Palace </title>
 
 
 </head>
 
-<body ng-controller="mainController">
+<body>
   <ul>
-      <li><a id="home" href="http://localhost:3000/">Home</a></li>
-      <li><a id="deckCreator" href="http://localhost:3000/#/deckCreator">Deck Creator</a></li>
-      <li><a id="deck" href="http://localhost:3000/#/decks">Decks</a></li>
-      <li><a id="practice" href="http://localhost:3000/#/practice">Practice</a></li>
+      <li><a id="home" href="#">Home</a></li>
+      <li><a id="deckCreator" href="/#/deckCreator">Deck Creator</a></li>
+      <li><a id="deck" href="#">Decks</a></li>
+      <li><a id="practice" href="#">Practice</a></li>
 </ul>
-<div id="main">{{message}}</div>
-<div ng-view>{{message}}</div>
+<!--<div id="main">{{message}}</div>-->
+<div ng-view>this is my ng view</div>
 
-  -PERSON-OBJECT-ACTION-
-
+  -PERSON-OBJECT-ACTION-{{'something in here'}}
+<!--
   <form action="/poa" method="POST">
     <input type="text" placeholder="person" name="person">
     <input type="text" placeholder="action" name="action"> a/an
     <input type="text" placeholder="object" name="object">
     <button type="submit">-SUBMIT-</button>
-  </form>
+  </form>-->
 
 </body>
 
