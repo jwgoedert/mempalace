@@ -57,8 +57,9 @@ app.get('/deckCreator', (req, res) => {
 
 // POST HANDLING
 app.post('/poa', (req, res) => {
+  console.log("POSTING", req.body);
   db.collection('poa').save(req.body, (err, result) =>
-    err ? console.log(err) : res.redirect('/'));
+    err ? console.log(err) : res.redirect('/#/deckCreator'));
 });
 module.exports = app;
 console.log('FINISHED SERVER');

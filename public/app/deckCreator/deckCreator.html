@@ -3,12 +3,22 @@
     <h1>
       {{message}}
     </h1>
-    <form action="/poa" method="POST">
-    <input type="text" placeholder="person" name="person">
-    <input type="text" placeholder="action" name="action"> a/an
-    <input type="text" placeholder="object" name="object">
-    <button type="submit">-SUBMIT-</button>
-  </form>
-  <div>{{phrases}}</div>
+
+    <body>
+      <form action="/poa" method="POST">
+        <input type="text" placeholder="person" name="person">
+        <input type="text" placeholder="action" name="action"> a/an
+        <input type="text" placeholder="object" name="object">
+        <button type="submit">-SUBMIT-</button>
+      </form>
+      <!--<div ng-repeat="phrase in phrases">{{phrases}}</div>-->
+
+      <!--<ul>-->
+        <div id="phrase" ng-repeat="phrase in phrases">
+          <button type="submit">delete</button>
+          <a>{{phrase.phrase}}</a>
+        </div>
+      <!--</ul>-->
+    </body>
   </div>
 </div>
