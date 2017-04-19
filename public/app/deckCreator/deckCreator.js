@@ -8,6 +8,10 @@ angular.module('memoryPal.deckCreator', [])
       $scope.phrases = decks.map((el) => {
         return { phrase: `${el.person} ${el.action} a ${el.object}.` };
       });
+      if($scope.phrases.length === 30){
+        $scope.complete = 'You finished your deck!';
+
+      }
       console.log("PHRASEARR LENGTH", $scope.phrases.length);
       // console.log("DECKS", $scope.data.decks);
       // console.log("Phrases", $scope.phrases);

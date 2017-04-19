@@ -61,5 +61,13 @@ app.post('/poa', (req, res) => {
   db.collection('poa').save(req.body, (err, result) =>
     err ? console.log(err) : res.redirect('/#/deckCreator'));
 });
+
+app.post('/memdata', (req, res) => {
+  console.log("POSTING", req.body);
+  db.collection('memdata').save(req.body, (err, result) =>
+    err ? console.log(err) : res.redirect('/#/decks'));
+});
+
+
 module.exports = app;
 console.log('FINISHED SERVER');
