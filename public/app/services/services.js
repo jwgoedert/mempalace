@@ -1,7 +1,7 @@
 angular.module('memoryPal.services', [])
   .factory('Decks', function ($http) {
     return {
-      getAll: function (cb) {
+      getAll: function () {
         return $http({
           method: 'GET',
           url: '/deckCreator',

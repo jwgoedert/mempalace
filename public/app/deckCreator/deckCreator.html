@@ -15,12 +15,12 @@
       <!--<div ng-repeat="phrase in phrases">{{phrases}}</div>-->
 
       <!--<ul>-->
-        <div id="phrase" ng-repeat="phrase in phrases">
-          <button type="submit">delete</button>
-          <a>{{phrase.phrase}}</a>
+        <div id="phrase" ng-repeat="phrase in data.decks">
+          <button type="submit" ng-click="newFunc(phrase._id)">delete</button>
+          <a>{{ phrase.person + ' ' + phrase.action + ' a ' + phrase.object + '.' }}</a>
           <!--<img src="smiley.gif" alt="Smiley face" height="42" width="42">-->
         </div>
       <!--</ul>-->
-    </body>
+    </body> 
   </div>
 </div>
