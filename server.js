@@ -67,7 +67,11 @@ app.post('/memdata', (req, res) => {
   db.collection('memdata').save(req.body, (err, result) =>
     err ? console.log(err) : res.redirect('/#/decks'));
 });
-
+// DELETE HANDLING
+// app.delete('/poa', (req, res) => {
+//   db.collection('poa').findOne(_id:req.params.id)
+//   res.send('DELETE request to homepage');
+// });
 
 module.exports = app;
 console.log('FINISHED SERVER');
