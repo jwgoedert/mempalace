@@ -4,7 +4,33 @@ angular.module('memoryPal.decks', [])
     $scope.data = {};
     $scope.splitData = { people: [], objects: [], actions: [] };
     $scope.message = 'DECKS';
-
+    // $scope.remove2 = (id) => {
+    //   console.log(id);
+    //   $http.delete('/poa/' + id).success((response) => {
+    //     console.log(response);
+    //   });
+    // };
+    // $scope.newFunc2 = (obj) => {
+    //   console.log("NEWFunck", obj);
+    //   $scope.remove(obj);
+    //   $window.location.reload();
+    // };
+    Decks.getDecks().then(function (deck) {
+      return $scope.data.deckarray = deck;
+    })
+    $scope.displayArray = (id) => {
+      $scope.data.currentArray = [];
+      console.log("DISPLAY", id);
+      console.log("DECKINDISPLAY", $scope.data.deckarray);
+      $scope.data.deckarray.forEach((deck) => {
+        console.log("IDs", deck._id, id);
+        if (deck._id === id) {
+          $scope.data.currentArray = deck.deck;
+        }
+      });
+      return $scope.data.currentArray
+      console.log("RESULTDeck", $scope.data.currentArray);
+    };
     $scope.randomDeck = (data) => {
       let shuffle = (arr) => {
         let curr = arr.length, tempVal, randomIndex;

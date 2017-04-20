@@ -52,6 +52,16 @@ app.get('/deckCreator', (req, res) => {
   });
 });
 
+app.get('/completeddecks', (req, res) => {
+  let cursor = db.collection('completeddecks').find().toArray(function (err, results) {
+    if (err) {
+      console.log('not working because of:', err);
+    } else {
+      console.log(results);
+      res.send(results);
+    }
+  });
+});
 // app.get('/deckCreator', (req, res) => {
 //   console.log('Hello World');
 //   res.send('worked! is this really working?');

@@ -13,6 +13,7 @@ angular.module('memoryPal.deckCreator', [])
       $http.delete('/poa/clear').success((response) => {
         console.log("CLEARRES", response);
       });
+      $window.location.reload();
     };
     $scope.newFunc = (obj) => {
       console.log("NEWFunck", obj);
