@@ -66,6 +66,7 @@ app.post('/poa', (req, res) => {
 
 app.post('/completeddecks', (req, res) => {
   console.log("POSTINGCOMPLETED", req.body);
+  // let data = req.body['fullDeck'] = fullDeck;
   db.collection('completeddecks').save(req.body, (err, result) =>
     err ? console.log(err) : res.redirect('/#/deckCreator'));
 });
@@ -77,11 +78,18 @@ app.post('/memdata', (req, res) => {
     err ? console.log(err) : res.redirect('/#/decks'));
 });
 // // DELETE HANDLING
-// app.delete('/poa', (req, res) => {
+// app.delete('/poa/clear', (req, res) => {
 //   console.log(req.body);
 //   db.collection('poa').findOne(_id:req.params.id)
 //   res.send('DELETE request to homepage');
 // });
+app.delete('/poa/clear', (req, res) => {
+  // db.collection('poa').drop( , (err, doc) => 
+  db.collection('poa').drop();
+  res.redirect('/#/deckCreator');
+  res.send('DELETE request to homepage');
+});
+
 app.delete('/poa/:id', (req, res) => {
   let id = req.params.id;
   console.log(id);
