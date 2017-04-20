@@ -1,8 +1,7 @@
 <div id='container'>
   <div>
     <h1>
-      {{message}}
-      {{complete}}
+      {{message}} {{complete}}
     </h1>
 
     <body>
@@ -12,15 +11,21 @@
         <input type="text" placeholder="object" name="object">
         <button type="submit">-SUBMIT-</button>
       </form>
-      <!--<div ng-repeat="phrase in phrases">{{phrases}}</div>-->
 
-      <!--<ul>-->
-        <div id="phrase" ng-repeat="phrase in data.decks">
-          <button type="submit" ng-click="newFunc(phrase._id)">delete</button>
-          <a>{{ phrase.person + ' ' + phrase.action + ' a ' + phrase.object + '.' }}</a>
-          <!--<img src="smiley.gif" alt="Smiley face" height="42" width="42">-->
-        </div>
-      <!--</ul>-->
-    </body> 
+      <!--<form action="/completeddecks" method="POST">-->
+        <form>
+        {{count}} of 52 cards complete!
+        <input type="text" placeholder="deck name" ng-model="deckName">
+        <button type="submit" ng-click="saveDeck(data.decks, deckName)">-SAVE DECK-</button>
+        </form>
+        
+      <!--</form>-->
+      
+      <div id="phrase" ng-repeat="phrase in data.decks">
+        <button type="submit" ng-click="newFunc(phrase._id)">delete</button>
+        <a>{{ phrase.person + ' ' + phrase.action + ' a ' + phrase.object + '.' }}</a>
+        <!--<img src="smiley.gif" alt="Smiley face" height="42" width="42">-->
+      </div>
+    </body>
   </div>
 </div>

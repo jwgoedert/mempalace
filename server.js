@@ -3,14 +3,15 @@ require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
+const mongodb = require('mongodb');
+// const Decks = require('Decks');
+
+const MongoClient = mongodb.MongoClient;
 
 const app = express();
 
 const dbUrl = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds161950.mlab.com:61950/mempalace`;
-mongoose.connect(dbUrl);
 
 const port = process.env.PORT || 3000;
 app.set('port', port);
@@ -19,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 let db;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
 MongoClient.connect(dbUrl, (err, database) => {
@@ -50,28 +52,42 @@ app.get('/deckCreator', (req, res) => {
   });
 });
 
-app.get('/deckCreator', (req, res) => {
-  console.log('Hello World');
-  res.send('worked! is this really working?');
-});
+// app.get('/deckCreator', (req, res) => {
+//   console.log('Hello World');
+//   res.send('worked! is this really working?');
+// });
 
 // POST HANDLING
 app.post('/poa', (req, res) => {
-  console.log("POSTING", req.body);
+  console.log("POSTINGPOA", req.body);
   db.collection('poa').save(req.body, (err, result) =>
     err ? console.log(err) : res.redirect('/#/deckCreator'));
 });
 
+app.post('/completeddecks', (req, res) => {
+  console.log("POSTINGCOMPLETED", req.body);
+  db.collection('completeddecks').save(req.body, (err, result) =>
+    err ? console.log(err) : res.redirect('/#/deckCreator'));
+});
+
+
 app.post('/memdata', (req, res) => {
-  console.log("POSTING", req.body);
+  console.log("POSTINGMEMDATA", req.body);
   db.collection('memdata').save(req.body, (err, result) =>
     err ? console.log(err) : res.redirect('/#/decks'));
 });
-// DELETE HANDLING
+// // DELETE HANDLING
 // app.delete('/poa', (req, res) => {
+//   console.log(req.body);
 //   db.collection('poa').findOne(_id:req.params.id)
 //   res.send('DELETE request to homepage');
 // });
+app.delete('/poa/:id', (req, res) => {
+  let id = req.params.id;
+  console.log(id);
+  db.collection('poa').remove({ _id: new mongodb.ObjectID(id) }, (err, doc) =>
+    err ? console.log(err) : res.redirect('/#/deckCreator'));
+});
 
 module.exports = app;
 console.log('FINISHED SERVER');
