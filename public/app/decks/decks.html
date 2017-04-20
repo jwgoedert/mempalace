@@ -3,50 +3,20 @@
     <h1>
       {{message}}
     </h1>
-
     <body>
-      <form action="/memdata" method="POST">
-        <input type="text" placeholder="person" name="people">
-        <button type="submit">-RandomDeck-</button>
-      </form>
-      <!--{{data.deckarray}}-->
-      <!--<span>-->
-      <!--<ul style="list-style-type: none; float: left; display: inline-block;">-->
-      <div class="container" ng-repeat="arr in data.deckarray">
-        <h2>{{arr.deckName}}</h2>
-        <button type="button" class="btn " data-toggle="collapse" data-target=#{{arr._id}} ng-click="getCards()">show deck</button>
-        <div id={{arr._id}} class="collapse">
-          <div class="container" ng-repeat="card in arr.deck">
-            <a>{{ 'the ' + card.card + ' of ' + card.suit + ' is ' + card.person + ' ' + card.action + ' a ' + card.object + '.' }}</a>
+        <!--<form action="/memdata" method="POST">
+          <input type="text" placeholder="person" name="people">
+          <button type="submit">-RandomDeck-</button>
+        </form>-->
+        <div class="container" ng-repeat="arr in data.deckarray">
+          <h2>{{arr.deckName}}</h2>
+          <button type="button" class="btn " data-toggle="collapse" data-target=#{{arr._id}} ng-click="getCards()">show deck</button>
+          <div id={{arr._id}} class="collapse">
+            <div class="container" ng-repeat="card in arr.deck">
+              <a>{{ 'the ' + card.card + ' of ' + card.suit + ' is ' + card.person + ' ' + card.action + ' a ' + card.object + '.' }}</a>
+            </div>
           </div>
-        </div>
-      </div>
-      <button ng-repeat="arr in data.deckarray" data-toggle="collapse" data-target="#demo">{{arr.deckName}}</button>
-      <div id="demo" class="collapse">
-        {{arr.deckName}}
-      </div>-->
-      <!--<button type="submit" ng-click="newFunc(arr._id)" class="btn btn-danger btn-link btn-xs">delete</button>-->
-      <!--<a>{{ 'the ' + phrase.card + ' of ' + phrase.suit + ' is ' + phrase.person + ' ' + phrase.action + ' a ' + phrase.object + '.' }}</a>-->
-      <!--<a ng-click="displayArray(arr._id)">{{arr.deckName}}</a>-->
+    </div>
+    </body>
   </div>
-
-  <!--</ul>-->
-
-  <!--<ul style="list-style-type: none; float: left; display: inline-block;">
-              <div id="arr" ng-repeat="arr in data.currentArray">
-                {{data.currentArray}}
-                </div>
-          
-        </ul>
-      <span>-->
-  <!--<div ng-repeat="phrase in phrases">{{phrases}}</div>-->
-
-  <!--<ul>-->
-  <!--<div id="phrase" ng-repeat="phrase in phrases">
-          <button type="submit">delete</button>
-          <a>{{phrase.phrase}}</a>
-        </div>-->
-  <!--</ul>-->
-  </body>
-</div>
 </div>

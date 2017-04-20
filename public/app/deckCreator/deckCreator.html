@@ -31,14 +31,15 @@
         <br>
         <br>
         <input class="inputs" type="text" placeholder="person" name="person">
-        <input class="inputs" type="text" placeholder="action" name="action"> a/an
+        <input class="inputs" type="text" placeholder="action" name="action"> 
+        <h3>a/an</h3>
         <input class="inputs" type="text" placeholder="object" name="object">
         <button type="submit">-SUBMIT-</button>
       </form>
 
       <!--<form action="/completeddecks" method="POST">-->
       <form>
-        {{count}} of 52 cards complete!
+        <h2>{{count}} of 52 cards complete!</h2>
         <input type="text" placeholder="deck name" ng-model="deckName">
         <button type="submit" ng-click="saveDeck(data.decks, deckName)">-SAVE DECK-</button>
          <button type="submit" ng-click="clear(data.decks)">-CLEAR DECK-</button>
