@@ -9,6 +9,11 @@ angular.module('memoryPal.deckCreator', [])
         console.log(response);
       });
     };
+    $scope.clear = () => {
+      $http.delete('/poa/clear').success((response) => {
+        console.log("CLEARRES", response);
+      });
+    };
     $scope.newFunc = (obj) => {
       console.log("NEWFunck", obj);
       $scope.remove(obj);

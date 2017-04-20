@@ -6,21 +6,33 @@
 
     <body>
       <form action="/poa" method="POST">
+        <select name="card">
+          <option value="Ace">Ace</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="Jack">Jack</option>
+          <option value="Queen">Queen</option>
+          <option value="King">King</option>
+        </select>
+        <text> of </text>
         <select name="suit">
-          <option value"Spades">Spades</option>
+          <option value="Spades">Spades</option>
           <option value="Clubs">Clubs</option>
           <option value="Hearts">Hearts</option>
           <option value="Diamonds">Diamonds</option>
         </select>
-        <select name="card">
-          <option value="spades">spades</option>
-          <option value="clubs">clubs</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-        <input type="text" placeholder="person" name="person">
-        <input type="text" placeholder="action" name="action"> a/an
-        <input type="text" placeholder="object" name="object">
+        <br>
+        <br>
+        <input class="inputs" type="text" placeholder="person" name="person">
+        <input class="inputs" type="text" placeholder="action" name="action"> a/an
+        <input class="inputs" type="text" placeholder="object" name="object">
         <button type="submit">-SUBMIT-</button>
       </form>
 
@@ -29,13 +41,14 @@
         {{count}} of 52 cards complete!
         <input type="text" placeholder="deck name" ng-model="deckName">
         <button type="submit" ng-click="saveDeck(data.decks, deckName)">-SAVE DECK-</button>
+         <button type="submit" ng-click="clear(data.decks)">-CLEAR DECK-</button>
       </form>
 
       <!--</form>-->
 
       <div id="phrase" ng-repeat="phrase in data.decks">
         <button type="submit" ng-click="newFunc(phrase._id)" class="btn btn-danger btn-link btn-xs">delete</button>
-        <a>{{ phrase.person + ' ' + phrase.action + ' a ' + phrase.object + '.' }}</a>
+        <a>{{ 'the ' + phrase.card + ' of ' + phrase.suit + ' is ' + phrase.person + ' ' + phrase.action + ' a ' + phrase.object + '.' }}</a>
         <!--<img src="smiley.gif" alt="Smiley face" height="42" width="42">-->
       </div>
     </body>
