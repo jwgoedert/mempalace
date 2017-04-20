@@ -13,20 +13,18 @@
       <!--<span>-->
       <!--<ul style="list-style-type: none; float: left; display: inline-block;">-->
       <div class="container" ng-repeat="arr in data.deckarray">
-        {{'#' + arr.deckName}}
         <h2>{{arr.deckName}}</h2>
-        <button type="button" class="btn btn-info" data-toggle="collapse" data-target=#{{arr._id}}>Simple collapsible</button>
+        <button type="button" class="btn " data-toggle="collapse" data-target=#{{arr._id}} ng-click="getCards()">show deck</button>
         <div id={{arr._id}} class="collapse">
-          is there just nothing showing up or what in the world?!
-          
-          {{arr.deck}}
+          <div class="container" ng-repeat="card in arr.deck">
+            <a>{{ 'the ' + card.card + ' of ' + card.suit + ' is ' + card.person + ' ' + card.action + ' a ' + card.object + '.' }}</a>
+          </div>
         </div>
       </div>
-      <!--<div id="arr" ng-repeat="arr in data.deckarray">
-              <button ng-repeat="arr in data.deckarray" data-toggle="collapse" data-target="#demo">{{arr.deckName}}</button>
-              <div id="demo" class="collapse">
-              {{arr.deckName}}
-              </div>-->
+      <button ng-repeat="arr in data.deckarray" data-toggle="collapse" data-target="#demo">{{arr.deckName}}</button>
+      <div id="demo" class="collapse">
+        {{arr.deckName}}
+      </div>-->
       <!--<button type="submit" ng-click="newFunc(arr._id)" class="btn btn-danger btn-link btn-xs">delete</button>-->
       <!--<a>{{ 'the ' + phrase.card + ' of ' + phrase.suit + ' is ' + phrase.person + ' ' + phrase.action + ' a ' + phrase.object + '.' }}</a>-->
       <!--<a ng-click="displayArray(arr._id)">{{arr.deckName}}</a>-->
