@@ -180,6 +180,48 @@ li a {
     text-decoration: none;
 }
 
+button{
+
+    background-color:transparent;
+    color: red;
+    border: 2px solid lightseagreen; /* Green */
+    font-weight: bold;
+}
+.btn {
+    font-style: italic;
+    background-color:transparent;
+    color: red;
+    border: 2px solid lightslategray; /* Green */
+}
+#home {
+  font-style: italic;
+  color:red;
+}
+#deckCreator {
+  font-style: italic;
+  color: lightslategray;
+}
+#deck{
+  font-style: italic;
+  color: lightslategray;
+}
+#random {
+  font-style: italic;
+  color:yellow;
+  font-size: 20px;
+}
+.deckNames {
+  font-size: 24px;
+}
+
+#randomIdea{
+  margin-left: 20px;
+}
+text{
+  font-style: italic;
+  color:orangered;
+  margin-bottom: 10px;
+}
 /* Change the link color to #111 (black) on hover */
 /*li a:hover {
     background-color: #111;

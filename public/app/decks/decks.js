@@ -1,23 +1,30 @@
 angular.module('memoryPal.decks', [])
 
-  .controller('decksController', function ($scope, Decks) { //named Decks after factory tbc
+  .controller('decksController', function ($scope, $window, Decks) { //named Decks after factory tbc
     $scope.data = {};
     $scope.splitData = { people: [], objects: [], actions: [] };
+    $scope.newData = { people: [], objects: [], actions: [] };
     $scope.message = 'DECKS';
-    // $scope.remove2 = (id) => {
-    //   console.log(id);
-    //   $http.delete('/poa/' + id).success((response) => {
-    //     console.log(response);
-    //   });
-    // };
-    // $scope.newFunc2 = (obj) => {
-    //   console.log("NEWFunck", obj);
-    //   $scope.remove(obj);
-    //   $window.location.reload();
-    // };
     Decks.getDecks().then(function (deck) {
+      console.log("GETDECKS", deck);
+      console.log("GETDECKS", $scope.data.deckarray = deck);
       return $scope.data.deckarray = deck;
-    })
+
+    });
+    $scope.splitDecks = (coll) => {
+      console.log("ALLDECKS", $scope.data.deckarray);
+      coll.forEach((deck) => {
+        $scope.newData.people = $scope.newData.people.concat(deck.deck.person);
+        $scope.newData.objects = $scope.newData.objects.concat(deck.deck.object);
+        $scope.newData.actions = $scope.newData.actions.concat(deck.deck.action);
+      });
+      return $scope.newData;
+    };
+    $scope.reloadWindow = () => {
+      $window.location.reload();
+    };
+    // $scope.splitDecks($scope.data.deckarray);
+    console.log("SHOW ME THE DATA!", $scope.splitData)
     $scope.displayArray = (id) => {
       $scope.data.currentArray = [];
       console.log("DISPLAY", id);
@@ -31,6 +38,7 @@ angular.module('memoryPal.decks', [])
       return $scope.data.currentArray
       console.log("RESULTDeck", $scope.data.currentArray);
     };
+
     $scope.randomDeck = (data) => {
       let shuffle = (arr) => {
         let curr = arr.length, tempVal, randomIndex;
@@ -50,7 +58,10 @@ angular.module('memoryPal.decks', [])
       }
       console.log("ZIPPED/SHUFFLED", zip(shuffle(data.people), shuffle(data.actions), shuffle(data.objects)));
 
+      return zip(shuffle(data.people), shuffle(data.actions), shuffle(data.objects));
+
     };
+
     Decks.getAll().then(function (decks) {
       $scope.data.decks = decks;
       $scope.phrases = decks.map((el) => {
@@ -65,5 +76,17 @@ angular.module('memoryPal.decks', [])
       });
       console.log("SPLIT DATA", $scope.splitData);
       console.log("RANDOM!", $scope.randomDeck($scope.splitData));
+      $scope.randomCurrent = $scope.randomDeck($scope.splitData);
+      console.log("ANYRANDOM", $scope.randomCurrent);
+
+      console.log("MORERANDOM!", $scope.randomDeck($scope.newData));
     });
+    
+    
+    
+    $scope.reRandom = (coll) => {
+      $scope.newRandom = $scope.randomDeck(coll);
+      $window.location.reload();
+
+    }
   });

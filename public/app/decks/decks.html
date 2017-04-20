@@ -3,14 +3,20 @@
     <h1>
       {{message}}
     </h1>
+    <h2>
+      Random Deck of the Moment:
+    </h2>
+    <div class="container" id="random" ng-repeat="pao in randomCurrent">
+    {{  pao[0] + ' ' + pao[1] + ' a ' + pao[2] + '.' }}
+    </div>
     <body>
-        <!--<form action="/memdata" method="POST">
-          <input type="text" placeholder="person" name="people">
-          <button type="submit">-RandomDeck-</button>
-        </form>-->
+        <form>
+          <!--<input type="text" placeholder="person" name="Random Deck Name">-->
+          <button id="randomIdea" type="submit" ng-click="reloadWindow()">-Random Idea Generator-</button>
+        </form>
         <div class="container" ng-repeat="arr in data.deckarray">
-          <h2>{{arr.deckName}}</h2>
-          <button type="button" class="btn " data-toggle="collapse" data-target=#{{arr._id}} ng-click="getCards()">show deck</button>
+          <!--<h2 class="deckNames">{{arr.deckName}}</h2>-->
+          <button type="button" class="btn btn-lg" data-toggle="collapse" data-target=#{{arr._id}} ng-click="getCards()">{{arr.deckName}}</button>
           <div id={{arr._id}} class="collapse">
             <div class="container" ng-repeat="card in arr.deck">
               <a>{{ 'the ' + card.card + ' of ' + card.suit + ' is ' + card.person + ' ' + card.action + ' a ' + card.object + '.' }}</a>
