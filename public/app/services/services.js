@@ -10,5 +10,14 @@ angular.module('memoryPal.services', [])
           return val.data;
         });
       },
+      getDecks: function () {
+        return $http({
+          method: 'GET',
+          url: '/completeddecks',
+        }).then(function successCallback(val) {
+          console.log("DECKS! callback", val.data);
+          return val.data;
+        });
+      },
     };
   });
